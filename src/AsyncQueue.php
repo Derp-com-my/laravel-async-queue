@@ -119,7 +119,7 @@ class AsyncQueue extends SyncQueue
         if (defined('PHP_WINDOWS_VERSION_BUILD')) {
             return 'start /B '.$cmd.' > NUL';
         } else {
-            return $cmd.' > /dev/null 2>&1 &';
+            return $cmd.' >> '.storage_path().'/logs/async-queue.log 2>&1 &';
         }
     }
 
